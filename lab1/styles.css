@@ -1,0 +1,7 @@
+table {
+    border-width: 2px;
+    border-style: solid;
+}
+th {
+    background-color: gray;
+}
