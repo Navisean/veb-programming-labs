@@ -1,7 +1,35 @@
-table {
-    border-width: 2px;
-    border-style: solid;
+h1 {
+    text-align: left;
+    color: green;
 }
+
+body {
+    text-align: right;
+    color: blue;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
 th {
     background-color: gray;
+    border: 2px solid black;
+}
+
+td {
+    border: 2px solid black;
+}
+
+ul {
+    direction: rtl;
+    list-style-type: disc;
 }
