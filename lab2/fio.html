@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>FIO</title>
+</head>
+<body>
+<script>
+    let sec_name = prompt("Введите свою фамилию");
+
+	let name = prompt("Введите своё имя");
+	
+	let otchestvo = prompt("Введите своё отчество");
+	
+	let result = confirm(sec_name + " " + name + " " + otchestvo + "\n" + "Всё верно?");
+
+	if (result) {
+      alert("Молодец!" + "\n" + sec_name + " " + name + " " + otchestvo);
+    } else {
+      alert("Ошибка в данных");
+    }
+  </script>
+  <a href="index.html">Главная</a>
+</body>
+</html>

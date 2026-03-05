@@ -1,4 +1,4 @@
-h1 {
+#h1 {
     text-align: left;
     color: green;
 }
@@ -10,8 +10,9 @@ body {
     font-size: 1.2em;
 }
 
-h2 {
+h2.class {
     text-align: center;
+    color: purple
 }
 
 table {
@@ -33,3 +34,4 @@ ul {
     direction: rtl;
     list-style-type: disc;
 }
+
