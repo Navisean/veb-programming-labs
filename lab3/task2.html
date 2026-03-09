@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+</head>
+<body>
+
+<h2>Задание 2</h2>
+<p>Чётные числа будут выведены ниже.</p>
+
+<button onclick="collectEvenNumbers()">Начать ввод чисел</button>
+
+<div id="result"></div>
+
+<script>
+function collectEvenNumbers() {
+    let evenNumbers = [];
+    
+    while (true) {
+        let input = prompt("Введите число (или нажмите Отмена для завершения):");
+
+        if (input === null) {
+            break;
+        }
+
+        if (input.trim() === "") {
+            continue;
+        }
+
+        let num = Number(input);
+
+        if (isNaN(num)) {
+            alert("Это не число!");
+            continue;
+        }
+
+        if (num % 2 === 0) {
+            evenNumbers.push(num);
+        }
+    }
+
+    let output = "<h3>Чётные числа:</h3>";
+    
+    if (evenNumbers.length === 0) {
+        output += "<p>Чётных чисел не было введено</p>";
+    } else {
+        output += "<ul>";
+        for (let num of evenNumbers) {
+            output += "<li>" + num + "</li>";
+        }
+        output += "</ul>";
+    }
+
+    document.getElementById("result").innerHTML = output;
+}
+</script>
+<p><a href="index.html">Вернуться на главную</a></p>
+</body>
+</html>

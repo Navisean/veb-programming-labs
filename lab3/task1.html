@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+</head>
+<body>
+
+<h2>Задание 1</h2>
+
+<button onclick="checkMath()">Начать проверку</button>
+
+<script>
+function checkMath() {
+    let a = 7;
+    let b = 12;
+    let operation = Math.random() < 0.5 ? "+" : "-"; 
+    
+    let correctAnswer;
+    let question;
+
+    if (operation === "+") {
+        correctAnswer = a + b;
+        question = `${a} + ${b} = ?`;
+    } else {
+        correctAnswer = a - b;
+        question = `${a} - ${b} = ?`;
+    }
+
+    let userAnswer = prompt(`Решите пример:\n${question}`);
+
+    if (userAnswer === null) {
+        alert("Вы отменили ввод");
+        return;
+    }
+
+    if (isNaN(userAnswer) || userAnswer.trim() === "") {
+        document.write("<h3>Вы не знаете цифры</h3>");
+        return;
+    }
+
+    userAnswer = Number(userAnswer);
+
+    if (userAnswer === correctAnswer) {
+        document.write("<h3>Вы знаете арифметику</h3>");
+    } else {
+        document.write("<h3>Вы не знаете арифметику</h3>");
+        document.write("<p>Правильный ответ был: " + correctAnswer + "</p>");
+    }
+
+    document.write('<p><a href="index.html">Вернуться на главную</a></p>');
+}
+</script>
+<p><a href="index.html">Вернуться на главную</a></p>
+</body>
+</html>
