@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Задание 2</title>
+</head>
+<body>
+
+<h2>Площадь треугольника по координатам</h2>
+
+<div>
+  x₁: <input type="text" id="x1" size="6" onfocus="calcArea()">
+  y₁: <input type="text" id="y1" size="6" onfocus="calcArea()">
+</div>
+<div>
+  x₂: <input type="text" id="x2" size="6" onfocus="calcArea()">
+  y₂: <input type="text" id="y2" size="6" onfocus="calcArea()">
+</div>
+<div>
+  x₃: <input type="text" id="x3" size="6" onfocus="calcArea()">
+  y₃: <input type="text" id="y3" size="6" onfocus="calcArea()">
+</div>
+
+<p>Площадь = <span id="result">—</span></p>
+
+<button onclick="location.href='index.html'">← На главную</button>
+
+<script>
+function calcArea() {
+  const x1 = Number(document.getElementById('x1').value) || 0;
+  const y1 = Number(document.getElementById('y1').value) || 0;
+  const x2 = Number(document.getElementById('x2').value) || 0;
+  const y2 = Number(document.getElementById('y2').value) || 0;
+  const x3 = Number(document.getElementById('x3').value) || 0;
+  const y3 = Number(document.getElementById('y3').value) || 0;
+
+  const area = Math.abs(
+    (x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2)) / 2
+  );
+
+  document.getElementById('result').textContent = area.toFixed(3);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Задание 3</title>
+</head>
+<body>
+
+<h2>Расстояние от точки до начала координат</h2>
+
+<div>
+  x: <input type="text" id="x" size="8" value="3" onselect="calcDistance()">
+  y: <input type="text" id="y" size="8" value="4" onselect="calcDistance()">
+</div>
+
+<p>Расстояние = <span id="result">—</span></p>
+
+<button onclick="location.href='index.html'">← На главную</button>
+
+<script>
+function calcDistance() {
+  const x = Number(document.getElementById('x').value) || 0;
+  const y = Number(document.getElementById('y').value) || 0;
+
+  const dist = Math.sqrt(x*x + y*y);
+
+  document.getElementById('result').textContent = dist.toFixed(4);
+}
+</script>
+
+</body>
+</html>

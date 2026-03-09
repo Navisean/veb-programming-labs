@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Задание 4</title>
+</head>
+<body>
+
+<h2>Обмен значений двух переменных</h2>
+
+<div>
+  A: <input type="text" id="a" size="10" value="6" onblur="swapValues()">
+  B: <input type="text" id="b" size="10" value="7" onblur="swapValues()">
+</div>
+
+<p>После потери фокуса значения меняются местами автоматически</p>
+
+<button onclick="location.href='index.html'">← На главную</button>
+
+<script>
+function swapValues() {
+  const inputA = document.getElementById('a');
+  const inputB = document.getElementById('b');
+
+  // меняем местами значения
+  const temp = inputA.value;
+  inputA.value = inputB.value;
+  inputB.value = temp;
+}
+</script>
+
+</body>
+</html>
