@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Заказ блюд</title>
+</head>
+<body>
+
+<h2>Заказ блюд</h2>
+
+<form id="order">
+
+  <div>
+    <p>Бефстроганов с картофельным пюре</p>
+    <label><input type="radio" name="p0" value="320" checked> маленькая 320 ₽</label><br>
+    <label><input type="radio" name="p0" value="480"> средняя 480 ₽</label><br>
+    <label><input type="radio" name="p0" value="680"> большая 680 ₽</label>
+  </div>
+
+  <div>
+    <p>Лазанья болоньезе</p>
+    <label><input type="radio" name="p1" value="290" checked> маленькая 290 ₽</label><br>
+    <label><input type="radio" name="p1" value="450"> средняя 450 ₽</label><br>
+    <label><input type="radio" name="p1" value="640"> большая 640 ₽</label>
+  </div>
+
+  <div>
+    <p>Курица терияки с рисом</p>
+    <label><input type="radio" name="p2" value="270" checked> маленькая 270 ₽</label><br>
+    <label><input type="radio" name="p2" value="410"> средняя 410 ₽</label><br>
+    <label><input type="radio" name="p2" value="590"> большая 590 ₽</label>
+  </div>
+
+  <div>
+    <p>Сёмга на гриле с овощами</p>
+    <label><input type="radio" name="p3" value="480" checked> маленькая 480 ₽</label><br>
+    <label><input type="radio" name="p3" value="720"> средняя 720 ₽</label><br>
+    <label><input type="radio" name="p3" value="980"> большая 980 ₽</label>
+  </div>
+
+  <div>
+    <p>Паста карбонара</p>
+    <label><input type="radio" name="p4" value="310" checked> маленькая 310 ₽</label><br>
+    <label><input type="radio" name="p4" value="470"> средняя 470 ₽</label><br>
+    <label><input type="radio" name="p4" value="650"> большая 650 ₽</label>
+  </div>
+
+  <hr>
+
+  <p>Доставка?</p>
+  <label><input type="radio" name="del" value="0" checked> Нет</label><br>
+  <label><input type="radio" name="del" value="1"> Да (+5%)</label>
+
+  <br><br>
+  <button type="button" onclick="calc()">Посчитать</button>
+
+</form>
+
+<pre id="out"></pre>
+
+<script>
+function calc() {
+  let sum = 0;
+  let bigCount = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let radio = document.querySelector(`input[name="p${i}"]:checked`);
+    if (!radio) continue;
+    let price = Number(radio.value);
+    sum += price;
+    if (price >= 590) bigCount++;   // грубо определяем большую порцию по цене
+  }
+
+  let delivery = 0;
+  let hasFreeDrink = bigCount > 2;
+  let deliveryFree = bigCount > 3;
+
+  if (document.querySelector('input[name="del"]:checked').value === "1") {
+    if (!deliveryFree) {
+      delivery = Math.round(sum * 0.05);
+    }
+  }
+
+  let total = sum + delivery;
+
+  let text = "";
+  text += "Сумма за блюда: " + sum + " ₽\n";
+  text += "Бесплатный напиток: " + (hasFreeDrink ? "да" : "нет") + "\n";
+  text += "Доставка: " + (delivery > 0 ? delivery + " ₽" : (deliveryFree ? "бесплатно" : "0 ₽")) + "\n";
+  text += "Итого: " + total + " ₽\n";
+
+  document.getElementById("out").textContent = text;
+}
+</script>
+
+</body>
+</html>
